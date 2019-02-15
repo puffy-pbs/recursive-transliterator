@@ -1,0 +1,3 @@
+<?php
+
+const LANGUAGES_FILES_PATH = 'languages' . DIRECTORY_SEPARATOR;
