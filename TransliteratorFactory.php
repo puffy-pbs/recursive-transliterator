@@ -19,13 +19,13 @@ class RecursiveTransliteratorFactory
      */
     public static function createFromLanguageFile(string $language): RecursiveTransliterator
     {
-            $languagePath = LANGUAGES_FILES_PATH . $language . '.php';
-            if (!file_exists($languagePath)) {
-                throw new InvalidArgumentException('File does not exist');
-            }
-            
-            $translations = require_once($languagePath);
-            return new RecursiveTransliterator($translations);
+        $languagePath = LANGUAGES_FILES_PATH . $language . '.php';
+        if (!file_exists($languagePath)) {
+            throw new InvalidArgumentException('File does not exist');
+        }
+
+        $translations = require_once($languagePath);
+        return new RecursiveTransliterator($translations);
     }
 
     /**Initial Commit!
