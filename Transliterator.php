@@ -65,7 +65,7 @@ class RecursiveTransliterator
      */
     private function transliterate(int $position, string $word): void
     {
-		$wordLength = mb_strlen($word);
+	    $wordLength = mb_strlen($word);
 		if ($position === $wordLength && count($this->currentTranslation) === $wordLength) {
             $currentTranslation = join('', $this->currentTranslation);
             array_push($this->translations[$this->currentIndex], $currentTranslation);
