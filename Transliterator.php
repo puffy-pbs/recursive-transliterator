@@ -4,7 +4,7 @@ namespace PuffyPBS\Transliterator;
 
 class RecursiveTransliterator
 {
-	private $transliterations;
+    private $transliterations;
 	private $currentTranslation;
 	private $translations;
 	private $currentIndex;
