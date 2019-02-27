@@ -82,7 +82,7 @@ class RecursiveTransliterator
             array_push($this->currentTranslation, $letterTransliteration);
             $this->transliterate($position + 1, $word);
             array_pop($this->currentTranslation);
-        }
+        } 
     }
     
 }
