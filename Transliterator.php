@@ -5,10 +5,10 @@ namespace PuffyPBS\Transliterator;
 class RecursiveTransliterator
 {
     private $transliterations;
-	private $currentTranslation;
-	private $translations;
-	private $currentIndex;
-	private $chunkSize;
+    private $currentTranslation;
+    private $translations;
+    private $currentIndex;
+    private $chunkSize;
 
     public function __construct(array $transliterations)
     {
@@ -17,7 +17,7 @@ class RecursiveTransliterator
         $this->translations = [];
         $this->currentIndex = 0;
         $this->chunkSize = 8;
-	}
+    }
 
     /**
      * @desc yield translation once it combines such
@@ -65,12 +65,12 @@ class RecursiveTransliterator
      */
     private function transliterate(int $position, string $word): void
     {
-	    $wordLength = mb_strlen($word);
-		if ($position === $wordLength && count($this->currentTranslation) === $wordLength) {
+        $wordLength = mb_strlen($word);
+        if ($position === $wordLength && count($this->currentTranslation) === $wordLength) {
             $currentTranslation = join('', $this->currentTranslation);
             array_push($this->translations[$this->currentIndex], $currentTranslation);
-			return;
-		}
+            return;
+        }
 
         $letter = mb_substr($word, $position, 1);
         $letterTransliterations = [$letter];
@@ -82,7 +82,7 @@ class RecursiveTransliterator
             array_push($this->currentTranslation, $letterTransliteration);
             $this->transliterate($position + 1, $word);
             array_pop($this->currentTranslation);
-        } 
+        }
     }
-    
+
 }

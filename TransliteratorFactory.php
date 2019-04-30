@@ -42,7 +42,7 @@ class RecursiveTransliteratorFactory
         $isTransliterationsValid = array_filter($transliterations, function ($transliteration, $letter) {
             return is_string($letter) && is_array($transliteration);
         }, ARRAY_FILTER_USE_BOTH);
-        
+
         if (count($isTransliterationsValid) !== count($transliterations)) {
             throw new InvalidArgumentException('Transliterations are not valid');
         }
