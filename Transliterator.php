@@ -2,34 +2,50 @@
 
 namespace PuffyPBS\Transliterator;
 
+use Generator;
+
 class RecursiveTransliterator
 {
+    /** @var int DEFAULT_CHUNK_SIZE */
+    private const DEFAULT_CHUNK_SIZE = 8;
+
+    /** @var array $transliterations */
     private $transliterations;
+
+    /** @var array $currentTranslation */
     private $currentTranslation;
+
+    /** @var array $translations */
     private $translations;
+
+    /** @var int $currentIndex */
     private $currentIndex;
+
+    /** @var int $chunkSize */
     private $chunkSize;
 
+    /**
+     * @param array $transliterations
+     */
     public function __construct(array $transliterations)
     {
         $this->transliterations = $transliterations;
         $this->currentTranslation = [];
         $this->translations = [];
         $this->currentIndex = 0;
-        $this->chunkSize = 8;
+        $this->chunkSize = self::DEFAULT_CHUNK_SIZE;
     }
 
     /**
-     * @desc yield translation once it combines such
+     * Yields a translation once it combines such
      * @param int $index
      * @param array $translationBuffer
-     * @return Generator|string
+     * @return Generator
      */
-    public function generateTranslations(int $index = 0, array $translationBuffer = []): \Generator
+    public function generateTranslations(int $index = 0, array $translationBuffer = []): Generator
     {
         if ($index === $this->currentIndex) {
-            $generatedTranslation = join('', $translationBuffer);
-            yield $generatedTranslation;
+            yield join('', $translationBuffer);
             return;
         }
 
@@ -41,7 +57,7 @@ class RecursiveTransliterator
     }
 
     /**
-     * @desc split the word into letters in order to transliterate it into chunks
+     * Splits the word into letters in order to transliterate it into chunks
      * @param string $word
      * @return void
      */
@@ -58,7 +74,7 @@ class RecursiveTransliterator
     }
 
     /**
-     * @desc makes transliteration of a given string
+     * Makes transliteration of a given string
      * @param int $position
      * @param string $word
      * @return void

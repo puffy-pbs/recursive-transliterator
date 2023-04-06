@@ -1,11 +1,21 @@
 <?php
 
+use PuffyPBS\Transliterator\Languages;
+use PuffyPBS\Transliterator\RecursiveTransliteratorFactory;
+
 require_once('autoload.php');
 
-$transliterator = \PuffyPBS\Transliterator\RecursiveTransliteratorFactory
-    ::createFromLanguageFile(\PuffyPBS\Transliterator\Languages::BG_EN);
+// Create Transliterator
+$transliterator = RecursiveTransliteratorFactory
+    ::createFromLanguageFile(Languages::BG_EN);
+
+// Process
 $transliterator->processData('Вчера какво правихме');
+
+// Generate the translations
 $transliterationGenerator = $transliterator->generateTranslations();
+
+// Print
 foreach ($transliterationGenerator as $transliteration) {
     echo($transliteration . PHP_EOL);
 }

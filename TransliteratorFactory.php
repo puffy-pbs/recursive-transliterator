@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pafity
- * Date: 24.1.2019 г.
- * Time: 21:27
- */
 
 namespace PuffyPBS\Transliterator;
 
@@ -13,7 +7,7 @@ use http\Exception\InvalidArgumentException;
 class RecursiveTransliteratorFactory
 {
     /**
-     * @desc creating a recursive transliterator from a language file
+     * Creating a recursive transliterator from a language file
      * @param string $language
      * @return RecursiveTransliterator
      */
@@ -28,8 +22,8 @@ class RecursiveTransliteratorFactory
         return new RecursiveTransliterator($translations);
     }
 
-    /**Initial Commit!
-     * @desc creating a recursive transliterator from a language array
+    /**
+     * Creating a recursive transliterator from a language array
      * @param array $transliterations
      * @return RecursiveTransliterator
      */
