@@ -4,7 +4,7 @@ Recursive Transliterator
 
 ## Getting Started
 Generates all possible transliterations based on a language data.
-If we want to translate the string "Вчера какво правихме" translates into:
+If we want to translate the string "Вчера какво правихме" in english language it could translates to:
 
 Wchera kakwo prawihme
 
