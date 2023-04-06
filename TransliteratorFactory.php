@@ -30,7 +30,7 @@ class RecursiveTransliteratorFactory
     public static function createFromTransliterationsArray(array $transliterations): RecursiveTransliterator
     {
         if (empty($transliterations)) {
-            throw new InvalidArgumentException('');
+            throw new InvalidArgumentException('Can not create Transliterator from empty transliterations array');
         }
 
         $isTransliterationsValid = array_filter($transliterations, function ($transliteration, $letter) {
